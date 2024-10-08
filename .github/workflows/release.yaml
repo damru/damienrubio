@@ -1,0 +1,78 @@
+name: Continuous delivery from main branch
+
+on:
+  release:
+    types:
+      - published
+  workflow_call:
+    inputs:
+      version:
+        description: "Version to release [major | minor | patch]"
+        default: "minor"
+        type: string
+      workflow_call:
+        description: "Calling from workflow"
+        default: true
+        type: boolean
+    secrets:
+      token:
+        description: "GitHub token"
+        required: false
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release [major | minor | patch]"
+        required: true
+        default: "minor"
+        type: string
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}-release"
+  cancel-in-progress: true
+
+env:
+  SEMVER: ${{ inputs.version || 'minor' }}
+
+jobs:
+  github:
+    if: github.event_name == 'workflow_dispatch' || inputs.workflow_call
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: npm version from-git --no-git-tag-version || true
+      - id: version
+        run: echo "version=$(npm version ${{ env.SEMVER }} --no-git-tag-version)" >> $GITHUB_OUTPUT
+      - name: "Generate release"
+        env:
+          GH_TOKEN: ${{ secrets.token || secrets.GH_TOKEN }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: gh release create --generate-notes --title "${VERSION/v/}" ${VERSION}
+  docker:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_PROJECT }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}},enable=${{ !startsWith(github.ref, 'refs/tags/v0.') }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push semver tags to Docker Hub
+        run: |
+          sha=${{ github.sha }}
+          echo "${{ steps.meta.outputs.tags }}" | while IFS= read -r tag ; do
+            docker buildx imagetools create docker.io/${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_PROJECT }}:sha-${sha::7} --tag docker.io/${tag}
+          done
