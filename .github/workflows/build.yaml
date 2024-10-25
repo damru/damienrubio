@@ -2,7 +2,7 @@ name: Build and deliver
 
 on:
   schedule:
-    - cron: "0 10 * * *"
+    - cron: "0 0 * * *"
   push:
     branches:
       - "**"
