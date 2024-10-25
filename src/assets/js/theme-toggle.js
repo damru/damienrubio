@@ -24,5 +24,5 @@ document.getElementById('theme-toggle').addEventListener('click', function () {
             themeColor = lightThemeColor;
         }
     }
-    document.querySelector('meta[name="theme-color"]').setAttribute("content", themeColor);
+    document.querySelectorAll('meta[name="theme-color"]').forEach((metaTag) => metaTag.setAttribute("content", themeColor));
 });
