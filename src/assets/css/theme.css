@@ -1,13 +1,14 @@
-:root, .dark {
+:root {
     --dark-accent-rgb: 45, 61, 84;
-    --dark-color-rgb: 33, 33 ,33;
+    --dark-color-rgb: 33, 33, 33;
     --dark-opacity: .37;
     --light-accent-rgb: 196, 215, 242;
     --light-color-rgb: 241, 241, 241;
     --light-opacity: .15;
     --transition: .3s ease;
     --spacing: 40px;
-
+}
+:root, .dark {
     --accent-color-rgb: var(--dark-accent-rgb);
     --background-color-rgb: var(--dark-color-rgb);
     --opacity: var(--dark-opacity);
