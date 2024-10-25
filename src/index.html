@@ -1,21 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="theme-color" content="#222">
-    <title>Damien Rubio</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="rgb(45, 61, 84)" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="rgb(196, 215, 242)" media="(prefers-color-scheme: light)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Damien Rubio - Software Engineer Portfolio">
+    <meta name="author" content="Damien Rubio">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/ico/favicon.png" type="image/png">
     <link rel="icon" sizes="32x32" href="assets/ico/favicon-32.png" type="image/png">
     <link rel="icon" sizes="64x64" href="assets/ico/favicon-64.png" type="image/png">
     <link rel="icon" sizes="96x96" href="assets/ico/favicon-96.png" type="image/png">
-    <link rel="icon" sizes="196x196" href="assets/ico/favicon-196.png" type="image/png">
-    <link rel="stylesheet" href="./styles.css">
-</head>
+    <link rel="icon" sizes="196x196" href="assets/ico/favicon-196.png" type="image/png">  
+    <link href="./assets/css/all.min.css" rel="stylesheet" />
+    <link href="./assets/css/theme.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Arima:wght@100..700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    
+    
+    <title>Damien Rubio</title>
 
+</head>
 <body>
-    <div id="wrapper"></div>
+    <header>
+        <div id="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+        </div>
+    </header>
+    <div class="container">
+        <section class="profile">
+            <div class="profile-image"></div>
+            <div>
+                <p>Bonjour, I am</p>
+                <h1>Damien Rubio</h1>
+            </div>
+        </section>
+        <div class="divider"></div>
+        <section class="socials">
+            <a href="https://github.com/damru" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/damienrubio" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://cv.damienrubio.com" target="_blank" title="Resume"><i class="fas fa-file-alt"></i></a>
+        </section>
+    </div>
+    <script src="./assets/js/theme-toggle.js"></script>
 </body>
 </html>

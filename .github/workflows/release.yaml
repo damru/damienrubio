@@ -47,6 +47,7 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: ${{ github.ref_name }}
+          patchAll: true
       - name: "Generate release"
         env:
           GH_TOKEN: ${{ secrets.token || secrets.GH_TOKEN }}
