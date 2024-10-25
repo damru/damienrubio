@@ -81,6 +81,14 @@ body {
     border-radius: 60% 30% 50% 5%;
 }
 
+.profile a {
+    font-weight: 500;
+    color: rgb(var(--text-color-rgb));
+    text-decoration: underline dotted;
+}
+.profile a:hover {
+    text-decoration: underline;
+}
 
 .socials {
     text-align: center;
