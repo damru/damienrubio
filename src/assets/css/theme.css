@@ -16,38 +16,34 @@
 
 body {
     font-family: "Afacad Flux", sans-serif;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
     margin: 0;
     padding: 0;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(353deg, rgba(var(--background-color-rgb),1) 0%, rgb(var(--accent-color-rgb),1) 100%);;
     color: rgb(var(--text-color-rgb));
     transition: all var(--transition);
 }
 
-#theme-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-#theme-toggle i {
-    padding: 10px;
-    cursor: pointer;
-}
-
 .container {
     display: flex;
     flex-direction: column;
+    position: relative;
     gap: var(--spacing);
     align-items: center;
+    justify-content: center;
     margin: auto;
     padding: var(--spacing);
-    position: relative;
-}   
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 0;
+    right: var(--spacing);
+    padding: 10px;
+    cursor: pointer;
+}
 
 .divider {
     width: 100%;
@@ -149,5 +145,15 @@ body {
     }
     .forced-dark .fa-sun {
         display: inline-block;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --spacing: 20px;
+    }
+    .profile {
+        flex-direction: column;
+        align-items: center;
     }
 }
