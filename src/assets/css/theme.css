@@ -1,4 +1,4 @@
-:root {
+:root, .dark {
     --dark-accent-rgb: 45, 61, 84;
     --dark-color-rgb: 33, 33 ,33;
     --dark-opacity: .37;
@@ -101,25 +101,19 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --accent-color-rgb: var(--dark-accent-rgb);
-        --background-color-rgb: var(--dark-color-rgb);
-        --opacity: var(--dark-opacity);
-        --text-color-rgb: var(--light-color-rgb);
-    }
-    .fa-moon {
-        display: none;
-    }
-    .forced-light {
+    .light {
         --accent-color-rgb: var(--light-accent-rgb);
         --background-color-rgb: var(--light-color-rgb);
         --opacity: var(--light-opacity);
         --text-color-rgb: var(--dark-color-rgb);
     }
-    .forced-light .fa-moon {
+    .fa-moon {
+        display: none;
+    }
+    .light .fa-moon {
         display: inline-block;
     }
-    .forced-light .fa-sun {
+    .light .fa-sun {
         display: none;
     }
 
@@ -135,16 +129,10 @@ body {
     .fa-sun {
         display: none;
     }
-    .forced-dark {
-        --accent-color-rgb: var(--dark-accent-rgb);
-        --background-color-rgb: var(--dark-color-rgb);
-        --opacity: var(--dark-opacity);
-        --text-color-rgb: var(--light-color-rgb);
-    }
-    .forced-dark .fa-moon {
+    .dark .fa-moon {
         display: none;
     }
-    .forced-dark .fa-sun {
+    .dark .fa-sun {
         display: inline-block;
     }
 }

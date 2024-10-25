@@ -1,23 +1,17 @@
-let isDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-const updateColorScheme = (event) => {
-    isDarkScheme = event.matches;
-};
-const isDarkSchemeListener = window.matchMedia("(prefers-color-scheme: dark)");
-isDarkSchemeListener.addEventListener("change", updateColorScheme);
-
-document.getElementById('theme-toggle').addEventListener('click', function() {
+document.getElementById('theme-toggle').addEventListener('click', function () {
+    let isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const body = document.body;
-    if (body.classList.contains('forced-light')) {
-        body.classList.remove('forced-light');
-        if (!isDarkScheme) {
-            body.classList.add('forced-dark');
-        }
-    } else if (body.classList.contains('forced-dark')) {
-        body.classList.remove('forced-dark');
-        if (isDarkScheme) {
-            body.classList.add('forced-light');
-        }
+    if (body.classList.contains('light')) {
+        body.classList.remove('light');
+        if (!isDarkMode) body.classList.add('dark');
+    } else if (body.classList.contains('dark')) {
+        body.classList.remove('dark');
+        if (isDarkMode) body.classList.add('light');
     } else {
-        body.classList.add(isDarkScheme ? 'forced-light' : 'forced-dark');
+        if (!isDarkMode) {
+            body.classList.add('dark');
+        } else {
+            body.classList.add('light');
+        }
     }
 });
