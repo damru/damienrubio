@@ -24,10 +24,12 @@ body {
     transition: all var(--transition);
 }
 
-header {
-    width: 100%;
+#theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
-header i {
+#theme-toggle i {
     padding: 10px;
     cursor: pointer;
 }
@@ -39,6 +41,7 @@ header i {
     align-items: center;
     margin: auto;
     padding: var(--spacing);
+    position: relative;
 }   
 
 .divider {
@@ -102,7 +105,7 @@ header i {
     display: none;
 }
 .forced-dark .fa-sun {
-    display: block;
+    display: inline-block;
 }
 
 .forced-light {
@@ -111,7 +114,7 @@ header i {
     --text-color-rgb: var(--dark-color-rgb);
 }
 .forced-light .fa-moon {
-    display: block;
+    display: inline-block;
 }
 .forced-light .fa-sun {
     display: none;
