@@ -16,14 +16,15 @@
 
 body {
     font-family: "Afacad Flux", sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
     margin: 0;
     padding: 0;
+    height: 100dvh;
+    min-height: 340px;
     background: linear-gradient(353deg, rgba(var(--background-color-rgb),1) 0%, rgb(var(--accent-color-rgb),1) 100%);;
     color: rgb(var(--text-color-rgb));
     transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
