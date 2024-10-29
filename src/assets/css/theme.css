@@ -78,9 +78,9 @@ body {
     height: 130px;
     background-image: url("../img/profile.png");
     background-size: cover;
-    border-radius: 41% 59% 81% 19% / 41% 44% 56% 59%;
-    animation: morph 8s ease-in-out infinite;
-
+    border-radius: 60% 30% 50% 5%;
+    transition: border-radius .5s ease;
+    animation: morph 7s linear infinite;
 }
 
 .profile a {
@@ -159,31 +159,34 @@ body {
 }
 
 @keyframes morph {
-    0% {
+    10% {
         border-radius: 59% 41% 61% 39% / 28% 79% 21% 72%;
     }
-    12% {
+    20% {
         border-radius: 38% 62% 29% 71% / 44% 27% 73% 56%;
     }
-    25% {
+    30% {
         border-radius: 56% 44% 80% 20% / 19% 55% 45% 81%
     }
-    37% {
+    40% {
         border-radius: 42% 58% 53% 47% / 30% 43% 57% 70%;
     }
     50% {
         border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
     }
-    62% {
+    60% {
         border-radius: 45% 55% 67% 33% / 65% 78% 22% 35%;
     }
-    75% {
+    70% {
         border-radius: 43% 57% 49% 51% / 65% 55% 45% 35%;
     }
-    87% {
+    80% {
         border-radius: 49% 51% 40% 60% / 44% 54% 46% 56%;
     }
-    100% {
+    90% {
         border-radius: 59% 41% 61% 39% / 28% 79% 21% 72%;
+    }
+    100% {
+        border-radius: 60% 30% 50% 5%;
     }
 }

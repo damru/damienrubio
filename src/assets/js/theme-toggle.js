@@ -1,10 +1,3 @@
-function useLightMode(isDarkMode, body) {
-    if (isDarkMode) {
-        body.classList.add('light');
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "rgb(251,251,251)");
-    }
-}
-
 document.getElementById('theme-toggle').addEventListener('click', function () {
     let isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const body = document.body;
