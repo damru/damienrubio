@@ -72,7 +72,7 @@ body {
     padding: 10px 0;
 }
 
-.profile-image {
+.profile-picture {
     width: 130px;
     min-width: 130px;
     height: 130px;
@@ -80,6 +80,9 @@ body {
     background-size: cover;
     border-radius: 60% 30% 50% 5%;
     transition: border-radius .5s ease;
+}
+
+.profile-picture.morph {
     animation: morph 7s linear infinite;
 }
 
