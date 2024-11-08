@@ -76,7 +76,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push semver tags to Docker Hub
         run: |
-          sha=${{ github.sha }}
           echo "${{ steps.meta.outputs.tags }}" | while IFS= read -r tag ; do
-            docker buildx imagetools create docker.io/${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_PROJECT }}:sha-${sha::7} --tag docker.io/${tag}
+            docker buildx imagetools create docker.io/${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_PROJECT }}:sha-${GITHUB_SHA::7} --tag docker.io/${tag}
           done
