@@ -121,16 +121,15 @@ body {
         --opacity: var(--light-opacity);
         --text-color-rgb: var(--dark-color-rgb);
     }
-    .fa-moon {
+    .fa-sun {
         display: none;
-    }
-    .light .fa-moon {
-        display: inline-block;
     }
     .light .fa-sun {
+        display: inline-block;
+    }
+    .light .fa-moon {
         display: none;
     }
-
 }
 
 @media (prefers-color-scheme: light) {
@@ -140,14 +139,14 @@ body {
         --opacity: var(--light-opacity);
         --text-color-rgb: var(--dark-color-rgb);
     }
-    .fa-sun {
+    .fa-moon {
         display: none;
     }
     .dark .fa-moon {
-        display: none;
+        display: inline-block;
     }
     .dark .fa-sun {
-        display: inline-block;
+        display: none;
     }
 }
 
